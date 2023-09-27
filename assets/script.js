@@ -12,10 +12,23 @@ after_button.addEventListener("click", () => {
 	alert("Vous avez cliqué sur le bouton suivant")
 })
 
-console.log(before_button)
-console.log(after_button)
+// let dotSlide = document.getElementById("slide").src="./assets/images/slideshow/slide2.jpg";
+
+// imageSlide.setAttribute("src", "./assets/images/slideshow/slide2.jpg")
+
+// "./assets/images/slideshow/slide"+slides[2]+".jpg"
+
+let changeImage = document.querySelector(".banner-img");
+changeImage.src ="./assets/images/slideshow/slide2.jpg"
+console.log(changeImage)
 
 
+let changeTagline = document.querySelector("#banner p");
+
+console.log(changeTagline)
+
+let changeDot = document.getElementsByClassName("dot");
+console.log(changeDot)
 
 const slides = [
 	{
@@ -36,4 +49,9 @@ const slides = [
 	}
 ]
 
-console.log(slides[3])
+//console.log(slides[3])
+
+for (let i = 0; i < slides.length; i++) {
+    console.log(slides[i]);
+}
+
