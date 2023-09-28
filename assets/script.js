@@ -1,35 +1,3 @@
-// let arrows = document.querySelectorAll("img.arrow")
-// console.log(arrows)
-
-/* SLIDER BUTTONS */
-let before_button = document.querySelector("img.arrow_left");
-before_button.addEventListener("click", () => {
-	alert("Vous avez cliqué sur le bouton precedent")
-})
-
-let after_button = document.querySelector("img.arrow_right")
-after_button.addEventListener("click", () => {
-	alert("Vous avez cliqué sur le bouton suivant")
-})
-
-// let dotSlide = document.getElementById("slide").src="./assets/images/slideshow/slide2.jpg";
-
-// imageSlide.setAttribute("src", "./assets/images/slideshow/slide2.jpg")
-
-// "./assets/images/slideshow/slide"+slides[2]+".jpg"
-
-let changeImage = document.querySelector(".banner-img");
-changeImage.src ="./assets/images/slideshow/slide2.jpg"
-console.log(changeImage)
-
-
-let changeTagline = document.querySelector("#banner p");
-
-console.log(changeTagline)
-
-let changeDot = document.getElementsByClassName("dot");
-console.log(changeDot)
-
 const slides = [
 	{
 		"image":"slide1.jpg",
@@ -48,10 +16,65 @@ const slides = [
 		"tagLine":"Autocollants <span>avec découpe laser sur mesure</span>"
 	}
 ]
+//console.log(slides[1].image)
 
-//console.log(slides[3])
 
-for (let i = 0; i < slides.length; i++) {
-    console.log(slides[i]);
-}
+/* SLIDER BUTTONS */
+// Je definis mes variables
+let before_button = document.querySelector("img.arrow_left");
+let path = "./assets/images/slideshow/";
+let slidesImage = slides[1].image;
 
+// Je definis mon écouteur
+before_button.addEventListener("click", () => {
+	let changeImage = document.querySelector(".banner-img");
+	
+
+	changeImage.src = path + slidesImage;
+	
+})
+console.log(path)
+console.log(slidesImage)
+console.log(changeImage)
+
+let after_button = document.querySelector("img.arrow_right")
+after_button.addEventListener("click", () => {
+	let changeImage = document.querySelector(".banner-img");
+	changeImage.src ="./assets/images/slideshow/slide1.jpg"
+	//console.log(changeImage)
+	// alert("Vous avez cliqué sur le bouton suivant")
+})
+
+
+
+
+
+let changeTagline = document.querySelector("#banner p");
+
+
+let changeDot = document.getElementsByClassName("dot");
+
+
+
+
+
+
+// IDEES
+// let arrows = document.querySelectorAll("img.arrow")
+// console.log(arrows)
+
+// let dotSlide = document.getElementById("slide").src="./assets/images/slideshow/slide2.jpg";
+
+// imageSlide.setAttribute("src", "./assets/images/slideshow/slide2.jpg")
+
+// "./assets/images/slideshow/slide"+slides[2]+".jpg"
+
+// for (let i = 0; i < slides.length; i++) {
+//     console.log(slides[i]);
+// }
+
+// alert("Vous avez cliqué sur le bouton precedent")
+
+// for (let counter = 0; counter < slides.length; counter++) {
+	// changeImage = slides[counter].image;
+	// }
