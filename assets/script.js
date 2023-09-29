@@ -19,30 +19,38 @@ const slides = [
 //console.log(slides[1].image)
 
 
-/* SLIDER BUTTONS */
-// Je definis mes variables
-let before_button = document.querySelector("img.arrow_left");
-let path = "./assets/images/slideshow/";
-let slidesImage = slides[1].image;
+/* AFTER BUTTON */
+// 1-Je definis mes variables
+let pathString = "./assets/images/slideshow/";
+let pathExtension = slides[0].image;
 
-// Je definis mon écouteur
-before_button.addEventListener("click", () => {
+// 2-J'applique mon écouteur et definis ma cible.
+let after_button = document.querySelector("img.arrow_right");
+after_button.addEventListener("click", () => {
 	let changeImage = document.querySelector(".banner-img");
+	changeImage.src = pathString + pathExtension;
 	
-
-	changeImage.src = path + slidesImage;
+	
+	// J'applique ma condition
+	
+	for (let i = 0; i < slides.length; i+ 1) {
+		console.log(slides[i].image)
+	}
+	
 	
 })
-console.log(path)
-console.log(slidesImage)
-console.log(changeImage)
+console.log(pathString)
+console.log(pathExtension)
+console.log(changeImage.src)
 
-let after_button = document.querySelector("img.arrow_right")
-after_button.addEventListener("click", () => {
+
+/* BEFORE BUTTON */
+let before_button = document.querySelector("img.arrow_left")
+before_button.addEventListener("click", () => {
 	let changeImage = document.querySelector(".banner-img");
 	changeImage.src ="./assets/images/slideshow/slide1.jpg"
 	//console.log(changeImage)
-	// alert("Vous avez cliqué sur le bouton suivant")
+	// alert("Vous avez cliqué sur le bouton precedent")
 })
 
 
@@ -73,8 +81,33 @@ let changeDot = document.getElementsByClassName("dot");
 //     console.log(slides[i]);
 // }
 
-// alert("Vous avez cliqué sur le bouton precedent")
+// alert("Vous avez cliqué sur le bouton suivant")
 
 // for (let counter = 0; counter < slides.length; counter++) {
-	// changeImage = slides[counter].image;
-	// }
+// changeImage = slides[counter].image;
+// }
+
+//function changeImagePath(path,imageExtension){
+//let newPath = path + imageExtension;
+//}
+
+//let imageExtension = slides[1].image;
+
+// let pathString = "./assets/images/slideshow/slide";
+// let pathNumber = 1;
+// let pathExtension = ".jpg"
+
+// 2-J'applique mon écouteur et definis ma cible.
+// let after_button = document.querySelector("img.arrow_right");
+// after_button.addEventListener("click", () => {
+// 	let changeImage = document.querySelector(".banner-img");
+// 	changeImage.src = pathString + pathNumber + pathExtension;
+	
+	
+// 	// J'applique ma condition
+// 	for (let i = 0; i < slides.length; i++) {
+// 	let pathNumber = pathNumber + 1;
+// 	}
+	
+	
+// })
