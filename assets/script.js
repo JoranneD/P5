@@ -16,48 +16,59 @@ const slides = [
 		"tagLine":"Autocollants <span>avec découpe laser sur mesure</span>"
 	}
 ]
-//console.log(slides[1].image)
+//console.log(slides[1].tagLine)
 
 
-/* AFTER BUTTON */
+
 // 1-Je definis mes variables
+
 let pathString = "./assets/images/slideshow/";
-let pathExtension = slides[0].image;
+let img_index = 0;
+let tag_index = 0;
+
+// Mes fonctions
+function changeSlideAfter(){
+	let changeImage = document.querySelector(".banner-img");
+	img_index = img_index + 1;
+	changeImage.src = pathString + slides[img_index].image;
+
+	let changeTag = document.querySelector("#banner p");
+	tag_index = tag_index + 1;
+	changeTag.innerHTML = slides[tag_index].tagLine;
+
+}
+
+function changeSlideBefore(){
+	let changeImage = document.querySelector(".banner-img");
+	img_index = img_index - 1;
+	changeImage.src = pathString + slides[img_index].image;
+
+	let changeTag = document.querySelector("#banner p");
+	tag_index = tag_index - 1;
+	changeTag.innerHTML = slides[tag_index].tagLine;
+}
+
+
+
 
 // 2-J'applique mon écouteur et definis ma cible.
+/* AFTER BUTTON */
 let after_button = document.querySelector("img.arrow_right");
 after_button.addEventListener("click", () => {
-	let changeImage = document.querySelector(".banner-img");
-	changeImage.src = pathString + pathExtension;
-	
-	
-	// J'applique ma condition
-	
-	for (let i = 0; i < slides.length; i+ 1) {
-		console.log(slides[i].image)
-	}
-	
+	changeSlideAfter();
+	changetagLine()
 	
 })
-console.log(pathString)
-console.log(pathExtension)
-console.log(changeImage.src)
 
 
 /* BEFORE BUTTON */
 let before_button = document.querySelector("img.arrow_left")
 before_button.addEventListener("click", () => {
-	let changeImage = document.querySelector(".banner-img");
-	changeImage.src ="./assets/images/slideshow/slide1.jpg"
-	//console.log(changeImage)
-	// alert("Vous avez cliqué sur le bouton precedent")
+	changeSlideBefore()
 })
 
 
 
-
-
-let changeTagline = document.querySelector("#banner p");
 
 
 let changeDot = document.getElementsByClassName("dot");
@@ -68,6 +79,14 @@ let changeDot = document.getElementsByClassName("dot");
 
 
 // IDEES
+
+// function changetagLine(){
+// 	let changeTag = document.querySelector("#banner p");
+// 	position = position + 1;
+// 	changeTag.innerHTML = slides[position].tagLine;
+// }
+
+
 // let arrows = document.querySelectorAll("img.arrow")
 // console.log(arrows)
 
