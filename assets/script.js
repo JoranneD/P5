@@ -1,3 +1,4 @@
+// Je déclare mon tableau
 const slides = [
 	{
 		"image":"slide1.jpg",
@@ -18,15 +19,24 @@ const slides = [
 ]
 //console.log(slides[1].tagLine)
 
-
+// Je modifie mon DOM en creant une liste parent/enfants
+let dotContainer = document.querySelector(".dots")
+for (let dot_counter = 0; dot_counter < slides.length; dot_counter++) {
+	let dot = document.createElement("div");
+	dotContainer.appendChild(dot);
+	dot.classList.add("dot");
+	//console.log(slides[dot_counter])
+}
 
 // 1-Je definis mes variables
-
 let pathString = "./assets/images/slideshow/";
 let img_index = 0;
 let tag_index = 0;
+let dot_index = 0;
 
-// Mes fonctions
+
+
+// Je définis mes fonctions
 function changeSlideAfter(){
 	let changeImage = document.querySelector(".banner-img");
 	img_index = img_index + 1;
@@ -36,6 +46,40 @@ function changeSlideAfter(){
 	tag_index = tag_index + 1;
 	changeTag.innerHTML = slides[tag_index].tagLine;
 
+	//TEST -----------------------------------------------
+	
+	let dotChild = document.querySelector(".dot");
+	console.log(dotContainer.children);
+	console.log(dotContainer.childElementCount);
+	console.log(dotContainer.length);
+	console.log(dotContainer.firstChild);
+	console.log(dotContainer.firstElementChild);
+	console.log(dotContainer.childNodes);
+	console.log(dotContainer.firstElementChild.nextElementSibling);
+
+
+
+	// let dotContainer = document.querySelector(".dots");
+	// let changeDot = 
+	// dot_index = dotContainer.length + 1;
+	// changedot.innerHTML = slides[dot_index].dotLine;
+
+
+	
+
+	// si dotContainer.firstchild == slides[0]  alors dotContainer.firstchild prend la classe dot_selected
+	// for (let dot of dotContainer.children) {
+	// 	dot.classList.add("dot_selected");
+	// 	console.log(dot.classList);
+	// }
+	// si 
+	//childElementCount
+	//console.log(dotContainer.classList);
+
+
+	//let first child
+
+//TEST -----------------------------------------------
 }
 
 function changeSlideBefore(){
@@ -56,10 +100,7 @@ function changeSlideBefore(){
 let after_button = document.querySelector("img.arrow_right");
 after_button.addEventListener("click", () => {
 	changeSlideAfter();
-	changetagLine()
-	
 })
-
 
 /* BEFORE BUTTON */
 let before_button = document.querySelector("img.arrow_left")
@@ -67,11 +108,11 @@ before_button.addEventListener("click", () => {
 	changeSlideBefore()
 })
 
+// 2-J'applique mon écouteur et definis ma cible.
 
 
 
 
-let changeDot = document.getElementsByClassName("dot");
 
 
 
@@ -79,6 +120,19 @@ let changeDot = document.getElementsByClassName("dot");
 
 
 // IDEES
+// let changeDot = document.querySelector(".dot");
+// let selectedDot = document.querySelector(".dot_selected");
+
+// 	if (selectedDot.next('dots').length) {
+// 		selectedDot.removeClass('dot_selected').next('dot').addClass('dot_selected');
+// 	  } else {
+// 		selectedDot.removeClass('dot-selected');
+// 		$('.dots').find('dot').first().addClass('dot_selected');
+// 	}
+
+// 	//selectedDot.classList.add("dot_selected");
+// 	console.log(changeDot)
+
 
 // function changetagLine(){
 // 	let changeTag = document.querySelector("#banner p");
