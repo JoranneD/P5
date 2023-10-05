@@ -18,6 +18,7 @@ const slides = [
 	}
 ]
 //console.log(slides[1].tagLine)
+//console.log(slides[0])
 
 // Je modifie mon DOM en creant une liste parent/enfants
 let dotContainer = document.querySelector(".dots")
@@ -32,7 +33,9 @@ for (let dot_counter = 0; dot_counter < slides.length; dot_counter++) {
 let pathString = "./assets/images/slideshow/";
 let img_index = 0;
 let tag_index = 0;
-let dot_index = 0;
+let dot_index = dotContainer.children[0];
+
+console.log(dot_index)
 
 
 
@@ -49,15 +52,18 @@ function changeSlideAfter(){
 	//TEST -----------------------------------------------
 	
 	let dotChild = document.querySelector(".dot");
-	console.log(dotContainer.children);
-	console.log(dotContainer.childElementCount);
-	console.log(dotContainer.length);
-	console.log(dotContainer.firstChild);
-	console.log(dotContainer.firstElementChild);
-	console.log(dotContainer.childNodes);
-	console.log(dotContainer.firstElementChild.nextElementSibling);
+	//console.log(dotContainer.children);
+	//console.log(dotContainer.childElementCount);
+	//console.log(dotContainer.length); sert à rien
+	//console.log(dotContainer.firstChild);
+	//console.log(dotContainer.firstElementChild);
+	//console.log(dotContainer.childNodes);
+	//console.log(dotContainer.firstElementChild.nextElementSibling);
+	console.log(dotContainer.children[0])
 
-
+	
+	//si slides[0] == dotContainer.children[0] alors let dotContainer.firstElementChild.classList.add(".dot_selected");
+	//sinon si 
 
 	// let dotContainer = document.querySelector(".dots");
 	// let changeDot = 
