@@ -31,12 +31,17 @@ for (let dot_counter = 0; dot_counter < slides.length; dot_counter++) {
 
 // 1-Je definis mes variables
 let pathString = "./assets/images/slideshow/";
+//let dotPathString = "dotContainer.children[";
 let img_index = 0;
 let tag_index = 0;
-let dot_index = dotContainer.children[0];
+let dot_index = 0 ;
+//let dot_index = dotContainer.children[0];
+//let dot_index = dotContainer.firstElementChild;
+let dotSelected = dotContainer.firstElementChild.classList.add("dot_selected");
 
+
+console.log(dotPathString)
 console.log(dot_index)
-
 
 
 // Je définis mes fonctions
@@ -51,7 +56,7 @@ function changeSlideAfter(){
 
 	//TEST -----------------------------------------------
 	
-	let dotChild = document.querySelector(".dot");
+	//let changeDot = document.querySelector(".dot");
 	//console.log(dotContainer.children);
 	//console.log(dotContainer.childElementCount);
 	//console.log(dotContainer.length); sert à rien
@@ -59,9 +64,39 @@ function changeSlideAfter(){
 	//console.log(dotContainer.firstElementChild);
 	//console.log(dotContainer.childNodes);
 	//console.log(dotContainer.firstElementChild.nextElementSibling);
-	console.log(dotContainer.children[0])
+	//console.log(dotContainer.children[0])
+	//console.log(changeDot)
+
+	// on va à l'enfant suivant
+	let changeDot = document.querySelector(".dot");
+	dot_index = dot_index + 1;
+	changeDot = dotContainer.children[dot_index];
+	console.log(changeDot)
+
+	// on enleve la classe selected au precedent dot et l'ajoute au suivant
+	dotSelected = dotContainer.firstElementChild.classList.add("dot_selected");
+	
+	//let changeDotSelected = dotContainer.firstElementChild;
+	//dotSelected = dotContainer.firstElementChild.classList.remove("dot_selected") && dotContainer.nextElementSibling.classList.add("dot_selected");
 
 	
+
+
+	//AUTRE -----------------------------------------------
+//let dot_index = dotContainer.firstElementChild.classList.add("dot_selected");
+//let test = dotContainer.firstElementChild.nextElementSibling;
+
+//console.log(test)
+
+// on va à l'enfant suivant
+	// let dot_index = dotContainer.firstElementChild.nextElementSibling;
+	// console.log(dot_index)
+
+	// let dot_indexx = dotContainer.children[1]
+	// console.log(dot_indexx)
+
+	// changedot.innerHTML = slides[dot_index].dotLine;
+
 	//si slides[0] == dotContainer.children[0] alors let dotContainer.firstElementChild.classList.add(".dot_selected");
 	//sinon si 
 
@@ -70,8 +105,6 @@ function changeSlideAfter(){
 	// dot_index = dotContainer.length + 1;
 	// changedot.innerHTML = slides[dot_index].dotLine;
 
-
-	
 
 	// si dotContainer.firstchild == slides[0]  alors dotContainer.firstchild prend la classe dot_selected
 	// for (let dot of dotContainer.children) {
