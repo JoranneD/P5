@@ -20,7 +20,7 @@ const slides = [
 //console.log(slides[1].tagLine)
 //console.log(slides[0])
 
-// Je modifie mon DOM en creant une liste parent/enfants
+// Je creer les enfants(div .dot) de mon parent(div .dots)
 let dotContainer = document.querySelector(".dots")
 for (let dot_counter = 0; dot_counter < slides.length; dot_counter++) {
 	let dot = document.createElement("div");
@@ -29,33 +29,85 @@ for (let dot_counter = 0; dot_counter < slides.length; dot_counter++) {
 	//console.log(slides[dot_counter])
 }
 
-// 1-Je definis mes variables
-let pathString = "./assets/images/slideshow/";
-//let dotPathString = "dotContainer.children[";
+// Je definis mes variables
 let img_index = 0;
 let tag_index = 0;
 let dot_index = 0 ;
-//let dot_index = dotContainer.children[0];
-//let dot_index = dotContainer.firstElementChild;
-let dotSelected = dotContainer.firstElementChild.classList.add("dot_selected");
-
-
-//console.log(dotPathString)
-//console.log(dot_index)
+let pathString = "./assets/images/slideshow/";
+let dotSelectionOn = dotContainer.firstElementChild.classList.add("dot_selected");
 
 
 // Je définis mes fonctions
 function changeSlideAfter(){
+	// Je change la source de l'image
 	let changeImage = document.querySelector(".banner-img");
 	img_index = img_index + 1;
 	changeImage.src = pathString + slides[img_index].image;
 
+	// Je change la légende 
 	let changeTag = document.querySelector("#banner p");
 	tag_index = tag_index + 1;
 	changeTag.innerHTML = slides[tag_index].tagLine;
-
-	//TEST -----------------------------------------------
 	
+	// Je vais à l'enfant/dot suivant
+	let changeDot = document.querySelector(".dot");
+	dot_index = dot_index + 1;
+	changeDot = dotContainer.children[dot_index];
+	
+	// J'ajoute la classe selected au dot actuel et l'enleve au precedent
+	let dotSelectionOn = dotContainer.children[dot_index].classList.add("dot_selected");
+	let dotSelectionOff = dotContainer.children[dot_index - 1].classList.remove("dot_selected");
+	console.log(dot_index)
+}
+
+function changeSlideBefore(){
+	let changeImage = document.querySelector(".banner-img");
+	img_index = img_index - 1;
+	changeImage.src = pathString + slides[img_index].image;
+
+	let changeTag = document.querySelector("#banner p");
+	tag_index = tag_index - 1;
+	changeTag.innerHTML = slides[tag_index].tagLine;
+
+	let changeDot = document.querySelector(".dot");
+	dot_index = dot_index - 1;
+	changeDot = dotContainer.children[dot_index];
+
+	let dotSelectionOn = dotContainer.children[dot_index].classList.add("dot_selected");
+	let dotSelectionOff = dotContainer.children[dot_index + 1].classList.remove("dot_selected");
+	console.log(dot_index)
+}
+
+
+// J'applique mon écouteur sur mon element et lui atttribut une(ou plusieurs) fonction.
+let after_button = document.querySelector("img.arrow_right");
+after_button.addEventListener("click", () => {
+	changeSlideAfter();
+})
+
+let before_button = document.querySelector("img.arrow_left")
+before_button.addEventListener("click", () => {
+	changeSlideBefore()
+})
+
+
+
+
+
+
+
+
+
+
+
+// IDEES
+
+//AUTRE -----------------------------------------------
+	//let dotPathString = "dotContainer.children[";
+	//let dot_index = dotContainer.children[0];
+
+	//let dot_index = dotContainer.firstElementChild;
+
 	//let changeDot = document.querySelector(".dot");
 	//console.log(dotContainer.children);
 	//console.log(dotContainer.childElementCount);
@@ -67,27 +119,10 @@ function changeSlideAfter(){
 	//console.log(dotContainer.children[0])
 	//console.log(changeDot)
 
-	// on va à l'enfant suivant
-	let changeDot = document.querySelector(".dot");
-	dot_index = dot_index + 1;
-	changeDot = dotContainer.children[dot_index];
-	
-	console.log(changeDot)
-
-	// on enleve la classe selected au precedent dot et l'ajoute au suivant
-	let dotSelectionOn = dotContainer.children[dot_index].classList.add("dot_selected");
-	let dotSelectionOff = dotContainer.children[dot_index - 1].classList.remove("dot_selected");
-	
-	
-	
 	//dotSelected = dotContainer.firstElementChild.classList.add("dot_selected");
 	//let changeDotSelected = dotContainer.firstElementChild;
 	//dotSelected = dotContainer.firstElementChild.classList.remove("dot_selected") && dotContainer.nextElementSibling.classList.add("dot_selected");
 
-	
-
-
-	//AUTRE -----------------------------------------------
 //let dot_index = dotContainer.firstElementChild.classList.add("dot_selected");
 //let test = dotContainer.firstElementChild.nextElementSibling;
 
@@ -124,46 +159,7 @@ function changeSlideAfter(){
 	//let first child
 
 //TEST -----------------------------------------------
-}
 
-function changeSlideBefore(){
-	let changeImage = document.querySelector(".banner-img");
-	img_index = img_index - 1;
-	changeImage.src = pathString + slides[img_index].image;
-
-	let changeTag = document.querySelector("#banner p");
-	tag_index = tag_index - 1;
-	changeTag.innerHTML = slides[tag_index].tagLine;
-}
-
-
-
-
-// 2-J'applique mon écouteur et definis ma cible.
-/* AFTER BUTTON */
-let after_button = document.querySelector("img.arrow_right");
-after_button.addEventListener("click", () => {
-	changeSlideAfter();
-})
-
-/* BEFORE BUTTON */
-let before_button = document.querySelector("img.arrow_left")
-before_button.addEventListener("click", () => {
-	changeSlideBefore()
-})
-
-// 2-J'applique mon écouteur et definis ma cible.
-
-
-
-
-
-
-
-
-
-
-// IDEES
 // let changeDot = document.querySelector(".dot");
 // let selectedDot = document.querySelector(".dot_selected");
 
