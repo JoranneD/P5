@@ -40,8 +40,8 @@ let dot_index = 0 ;
 let dotSelected = dotContainer.firstElementChild.classList.add("dot_selected");
 
 
-console.log(dotPathString)
-console.log(dot_index)
+//console.log(dotPathString)
+//console.log(dot_index)
 
 
 // Je définis mes fonctions
@@ -71,11 +71,16 @@ function changeSlideAfter(){
 	let changeDot = document.querySelector(".dot");
 	dot_index = dot_index + 1;
 	changeDot = dotContainer.children[dot_index];
+	
 	console.log(changeDot)
 
 	// on enleve la classe selected au precedent dot et l'ajoute au suivant
-	dotSelected = dotContainer.firstElementChild.classList.add("dot_selected");
+	let dotSelectionOn = dotContainer.children[dot_index].classList.add("dot_selected");
+	let dotSelectionOff = dotContainer.children[dot_index - 1].classList.remove("dot_selected");
 	
+	
+	
+	//dotSelected = dotContainer.firstElementChild.classList.add("dot_selected");
 	//let changeDotSelected = dotContainer.firstElementChild;
 	//dotSelected = dotContainer.firstElementChild.classList.remove("dot_selected") && dotContainer.nextElementSibling.classList.add("dot_selected");
 
