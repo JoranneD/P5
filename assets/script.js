@@ -57,7 +57,48 @@ function changeSlideAfter(){
 	// J'ajoute la classe selected au dot actuel et l'enleve au precedent
 	let dotSelectionOn = dotContainer.children[dot_index].classList.add("dot_selected");
 	let dotSelectionOff = dotContainer.children[dot_index - 1].classList.remove("dot_selected");
-	console.log(dot_index)
+	//console.log(dot_index)
+
+	//TEST 2 -----------------------------------------------
+	// Si (on est à la dernière image) (et) que l’on (clique à droite) alors : on affiche la première image
+
+	let slidesLength = slides.length;
+	let firstSlide = slides[0].image;
+	let lastSlide = slides[slidesLength - 1].image;
+	let endSlider = slides.length - 1;
+
+	if (slides[img_index].image === lastSlide){
+		for (let img_index = 0; img_index === slides.length; img_index--) {
+		slides[img_index].image = firstSlide;
+		//changeImage.src = pathString + slides[img_index].image;
+		}
+	}
+
+
+	//console.log(img_index)
+	//console.log(firstSlide)
+	console.log(slides[img_index].image)
+	console.log(lastSlide)
+	
+	//console.log(slides.length)
+	
+	// if (slides[img_index].image === lastSlide){
+	// 	for (let img_index = 0; img_index === slides.length; img_index--) {
+	// 	slides[img_index].image = firstSlide;
+	// 	//changeImage.src = pathString + slides[img_index].image;
+	// 	 }
+	// }
+//changeImage.src = pathString + slides[0].image;
+//&& document.querySelector("img.arrow_right").click())
+//for (let i = 0; i < slides.length; i++) {
+
+// let endSlider = slides.length - 1;
+// 	if (img_index === endSlider && tag_index === endSlider)  {
+// 		img_index = 0;
+// 		tag_index = 0;
+// 		//changeImage.src = pathString + slides[img_index].image;
+// 	}
+
 }
 
 function changeSlideBefore(){
