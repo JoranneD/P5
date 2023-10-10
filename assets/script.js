@@ -58,6 +58,7 @@ before_button.addEventListener("click", () => {
 	aDiv.classList.remove("dot_selected")
 	updateSlide();
 	updateDots();
+	
 })
 
 // Je définis mes fonctions
@@ -77,7 +78,3 @@ function updateDots(){
 
 updateDots();
 updateSlide();
-
-// Navigation : console.log(slides[1].tagLine) ou console.log(slides[0])
-//(les enfants(div .dot) de mon parent(div .dots))
-// parcours ce tableau et pour chaque objet que tu compte, creer un bullet point
